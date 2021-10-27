@@ -5,11 +5,12 @@ from .mlflow import MlflowLoggerHook
 from .neptune import NeptuneLoggerHook
 from .pavi import PaviLoggerHook
 from .tensorboard import TensorboardLoggerHook
+from .tensorboard_image import TensorboardImageLoggerHook
 from .text import TextLoggerHook
 from .wandb import WandbLoggerHook
 
 __all__ = [
     'LoggerHook', 'MlflowLoggerHook', 'PaviLoggerHook',
     'TensorboardLoggerHook', 'TextLoggerHook', 'WandbLoggerHook',
-    'NeptuneLoggerHook', 'DvcliveLoggerHook'
+    'NeptuneLoggerHook', 'DvcliveLoggerHook', 'TensorboardImageLoggerHook', 
 ]
