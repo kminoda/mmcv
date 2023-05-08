@@ -174,6 +174,10 @@ class TextLoggerHook(LoggerHook):
 
         log_dict = dict(log_dict, **runner.log_buffer.output)
 
+        ################### KOJI ###################
+        log_dict = {k: v for k, v in log_dict.items() if 'image' not in k}
+        ################### KOJI ###################
+
         self._log_info(log_dict, runner)
         self._dump_log(log_dict, runner)
         return log_dict

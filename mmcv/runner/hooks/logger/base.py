@@ -114,6 +114,7 @@ class LoggerHook(Hook):
                           allow_scalar=True,
                           allow_text=False,
                           add_mode=True,
+                          allow_image=False,
                           tags_to_skip=('time', 'data_time')):
         tags = {}
         for var, val in runner.log_buffer.output.items():
@@ -122,6 +123,8 @@ class LoggerHook(Hook):
             if self.is_scalar(val) and not allow_scalar:
                 continue
             if isinstance(val, str) and not allow_text:
+                continue
+            if 'image' in var and not allow_image:
                 continue
             if add_mode:
                 var = f'{self.get_mode(runner)}/{var}'
